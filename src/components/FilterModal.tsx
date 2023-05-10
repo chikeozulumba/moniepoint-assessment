@@ -99,11 +99,11 @@ export function FilterModal({ open, setModal }: Props) {
                 <div className="text-sm leading-6 flex flex-col gap-[4px]">
                   <label
                     htmlFor={a}
-                    className="text-[rgb(17, 17, 17)] text-[16px] font-[400]"
+                    className="text-[#111111] text-[16px] font-[400]"
                   >
                     {a}
                   </label>
-                  <p className="text-[rgb(113, 113, 113)] text-[14px] leading-[20px]">
+                  <p className="text-[#717171] text-[14px] leading-[20px]">
                     {b}
                   </p>
                 </div>
