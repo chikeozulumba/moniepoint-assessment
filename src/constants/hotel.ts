@@ -1,0 +1,98 @@
+export const HOTEL = [
+  {
+    name: "Grand Hotel",
+    address: "123 Main St, Anytown, USA",
+    rating: 4.5,
+    price: 200.5,
+  },
+  {
+    name: "Luxury Suites",
+    address: "456 Maple Ave, Anytown, USA",
+    rating: 4.7,
+    price: 400.75,
+  },
+  {
+    name: "Riviera Hotel",
+    address: "789 Oak St, Anytown, USA",
+    rating: 4.2,
+    price: 150.0,
+  },
+  {
+    name: "Paradise Inn",
+    address: "1010 Pine Rd, Anytown, USA",
+    rating: 4.9,
+    price: 500.0,
+  },
+  {
+    name: "Beachfront Hotel",
+    address: "555 Beach Blvd, Anytown, USA",
+    rating: 4.3,
+    price: 175.25,
+  },
+  {
+    name: "The Palms",
+    address: "777 Palm St, Anytown, USA",
+    rating: 4.6,
+    price: 300.0,
+  },
+  {
+    name: "Seaside Resort",
+    address: "999 Ocean Ave, Anytown, USA",
+    rating: 4.8,
+    price: 450.5,
+  },
+  {
+    name: "Mountain Lodge",
+    address: "321 Mountain Rd, Anytown, USA",
+    rating: 4.4,
+    price: 225.75,
+  },
+  {
+    name: "City View Hotel",
+    address: "444 Downtown Blvd, Anytown, USA",
+    rating: 4.1,
+    price: 125.0,
+  },
+  {
+    name: "The Tower",
+    address: "888 High St, Anytown, USA",
+    rating: 4.5,
+    price: 275.25,
+  },
+  {
+    name: "Park Plaza",
+    address: "555 Park Ave, Anytown, USA",
+    rating: 4.7,
+    price: 375.5,
+  },
+  {
+    name: "Ritz Carlton",
+    address: "777 Sunset Blvd, Anytown, USA",
+    rating: 4.9,
+    price: 600.0,
+  },
+  {
+    name: "The Oasis",
+    address: "999 Desert Rd, Anytown, USA",
+    rating: 4.2,
+    price: 150.75,
+  },
+  {
+    name: "Lakeside Inn",
+    address: "321 Lakefront Dr, Anytown, USA",
+    rating: 4.6,
+    price: 275.0,
+  },
+  {
+    name: "Grandview Hotel",
+    address: "444 Scenic View, Anytown, USA",
+    rating: 4.8,
+    price: 425.25,
+  },
+  {
+    name: "Island Resort",
+    address: "777 Island Ave, Anytown, USA",
+    rating: 4.3,
+    price: 200.0,
+  },
+];

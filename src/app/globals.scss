@@ -1,0 +1,220 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
+    --line-height: 20px;
+}
+
+@media (prefers-color-scheme: dark) {
+     :root {
+        --foreground-rgb: 255, 255, 255;
+        --background-start-rgb: 0, 0, 0;
+        --background-end-rgb: 0, 0, 0;
+    }
+}
+
+body {
+    color: rgb(var(--foreground-rgb));
+    background: white;
+}
+
+#app-logo {
+    image-rendering: pixelated;
+    flex-shrink: 0;
+    background-size: 100% 100%;
+    opacity: 1;
+}
+
+#avatar {
+    border-radius: 100%;
+    opacity: 1;
+    aspect-ratio: 1 / 1;
+    flex: 0 0 auto;
+    position: relative;
+    height: 40px;
+    width: 40px;
+    .wrapper {
+        position: absolute;
+        pointer-events: none;
+        user-select: none;
+        border-radius: inherit;
+        inset: 0px;
+        .image {
+            display: contents;
+            border-radius: inherit;
+            pointer-events: none;
+            img {
+                pointer-events: none;
+                user-select: none;
+                display: block;
+                width: 100%;
+                height: 100%;
+                border-radius: inherit;
+                object-position: center center;
+                object-fit: fill;
+                image-rendering: auto;
+            }
+        }
+    }
+}
+
+.navbar-menu {
+    place-content: flex-start;
+    align-items: flex-start;
+    flex: 0 0 auto;
+    flex-flow: row nowrap;
+    height: 72px;
+    overflow: visible;
+    padding: 0px;
+    position: relative;
+}
+
+.navbar-menu-item {
+    place-content: flex-start;
+    align-items: center;
+    flex: 0 0 auto;
+    flex-flow: row nowrap;
+    height: 72px;
+    overflow: visible;
+    padding: 0px;
+    position: relative;
+}
+
+#hotel-card-wrapper {
+    display: grid;
+    flex: 1 0 0px;
+    gap: 24px;
+    grid-auto-rows: minmax(0px, 1fr);
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
+    grid-template-rows: repeat(2, minmax(0px, 1fr));
+    height: 100%;
+    justify-content: center;
+    padding: 32px;
+    position: relative;
+    width: 1px;
+}
+
+.hotel-card {
+    place-content: flex-start;
+    align-items: flex-start;
+    cursor: pointer;
+    display: flex;
+    flex-flow: column wrap;
+    gap: 0px;
+    height: min-content;
+    overflow: hidden;
+    padding: 0px;
+    position: relative;
+    text-decoration: none;
+    will-change: transform;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    opacity: 1;
+    border-radius: 20px;
+    box-shadow: none;
+    &:hover {
+        --border-bottom-width: 1px;
+        --border-color: rgba(17, 17, 17, 0.1);
+        --border-left-width: 1px;
+        --border-right-width: 1px;
+        --border-style: solid;
+        --border-top-width: 1px;
+        background-color: rgb(255, 255, 255);
+        width: 100%;
+        opacity: 1;
+        border-radius: 20px;
+        box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 24px 0px;
+    }
+    .image {
+        flex: 0 0 auto;
+        height: 200px;
+        position: relative;
+        width: 100%;
+    }
+    .content {
+        place-content: flex-start space-between;
+        align-items: flex-start;
+        display: flex;
+        flex: 0 0 auto;
+        flex-flow: column nowrap;
+        height: 180px;
+        padding: 20px;
+        position: relative;
+        width: 100%;
+    }
+}
+
+.image-bg-wrapper {
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+    border-radius: inherit;
+    inset: 0px;
+    >div {
+        display: contents;
+        border-radius: inherit;
+        pointer-events: none;
+    }
+    img {
+        pointer-events: none;
+        user-select: none;
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+        object-position: center center;
+        object-fit: cover;
+        image-rendering: auto;
+    }
+}
+
+.filter-modal-content {
+    top: 144px;
+    box-shadow: rgba(0, 0, 0, 0.12) -8px 0px 40px 0px;
+    transform: perspective(1200px);
+}
+
+#filter-modal {
+    height: calc(100vh - 144px);
+    top: 144px;
+}
+
+#filter-modal-container {
+    gap: 24px;
+    #clear {
+        background-image: linear-gradient(90deg, rgb(211, 59, 80) 0%, rgb(198, 47, 101) 100%);
+        display: inline-block;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        padding: max(0em, calc(calc(1.3em - var(--line-height, 1.3em)) / 2));
+        margin: min(0em, calc(calc(1.3em - var(--line-height, 1.3em)) / -2));
+    }
+}
+
+.divider {
+    background-color: rgba(17, 17, 17, 0.1);
+    flex: 0 0 auto;
+    height: 1px;
+    position: relative;
+    width: 100%;
+}
+
+#filter-cta {
+    background: linear-gradient(95.006deg, rgb(211, 59, 80) 0%, rgb(198, 47, 101) 100%);
+}
+
+.text-image {
+    background-image: linear-gradient(90deg, rgb(211, 59, 80) 0%, rgb(198, 47, 101) 100%);
+    display: inline-block;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: max(0em, calc(calc(1.3em - var(--line-height, 1.3em)) / 2));
+    margin: min(0em, calc(calc(1.3em - var(--line-height, 1.3em)) / -2));
+}
+
+.custom-bg {
+    background: linear-gradient(90deg, rgb(211, 59, 80) 0%, rgb(198, 47, 101) 100%)
+}
