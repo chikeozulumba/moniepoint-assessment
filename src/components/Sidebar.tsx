@@ -19,7 +19,8 @@ export function Sidebar() {
             key={i}
             className={classNames(
               "h-[48px] px-[32px] gap-x-[32px] py-[8px] flex flex-row items-center flex-nowrap text-[14px] hover:bg-custom-grey-2/50 cursor-pointer",
-              i === 0 ? "border-r-[3px] border-custom-red-2" : ""
+              i === 0 ? "border-r-[3px] border-custom-red-2" : "",
+              isShown ? "slide-right" : ""
             )}
           >
             <ChevronRightIcon

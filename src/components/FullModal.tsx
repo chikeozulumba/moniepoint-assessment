@@ -2,7 +2,7 @@
 
 import { Fragment, ReactNode } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { XMarkIcon } from "@heroicons/react/24/outline";
+import { HeartIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
 type Props = {
   open: boolean;
@@ -48,14 +48,16 @@ export function FullModal({ open, setModal: setOpen, children }: Props) {
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
                   >
-                    <div className="absolute left-0 top-0 -ml-8 flex pr-2 pt-4 sm:-ml-10 sm:pr-4">
+                    <div className="absolute -left-[10px] top-0 -ml-8 flex pr-2 pt-4 sm:-ml-10 sm:pr-4">
                       <button
-                        type="button"
-                        className="rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
                         onClick={() => setOpen(false)}
+                        className="h-[36px] w-[36px] rounded-full bg-white flex items-center justify-center z-[9999] hover:transition-all outline-none"
                       >
                         <span className="sr-only">Close panel</span>
-                        <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                        <XMarkIcon
+                          className="h-[20px] w-[20px] text-custom-text"
+                          aria-hidden="true"
+                        />
                       </button>
                     </div>
                   </Transition.Child>

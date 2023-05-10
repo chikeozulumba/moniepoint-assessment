@@ -17,10 +17,12 @@ import {
 } from "@heroicons/react/24/outline";
 import { StarIcon } from "@heroicons/react/24/solid";
 import { FullModal as Modal } from "./FullModal";
+import { HOTEL } from "@/constants/hotel";
 
 type Props = {
   open: boolean;
   setModal: any;
+  hotel: (typeof HOTEL)[0] | null;
 };
 
 const ITEMS = [
@@ -56,7 +58,7 @@ const RATING = {
   Value: 3.2,
 };
 
-function SidePanel() {
+function SidePanel({ hotel }: { hotel: (typeof HOTEL)[0] }) {
   return (
     <div className="top-[32px] sticky border-[1px] border-[rgba(17, 17, 17, 0.04)] w-[360px] min-h-[558px] bg-[#f5f5f4] rounded-[20px] p-[24px] gap-[24px] flex flex-col">
       <div className="flex flex-row justify-between flex-nowrap gap-x-[8px w-full">
@@ -66,8 +68,7 @@ function SidePanel() {
               currency: "USD",
               style: "currency",
               minimumFractionDigits: 0,
-              maximumFractionDigits: 0,
-            }).format(350)}
+            }).format(hotel.price)}
           </span>
           <span className="text-custom-text-grey text-[14px]">/</span>
           <span className="text-custom-text-grey text-[14px]">night</span>
@@ -77,7 +78,7 @@ function SidePanel() {
           <span className="text-custom-text text-[14px] leading-[20px]">
             {new Intl.NumberFormat("en-US", {
               minimumSignificantDigits: 2,
-            }).format(4.99)}
+            }).format(hotel.rating)}
           </span>
         </span>
       </div>
@@ -187,7 +188,7 @@ function RareFind() {
   );
 }
 
-export function HotelViewModal({ open, setModal }: Props) {
+export function HotelViewModal({ open, setModal, hotel }: Props) {
   return (
     <Modal open={open} setModal={setModal}>
       <div className="hotel-view text-custom-text-black p-[32px] gap-[32px] flex flex-col flex-nowrap">
@@ -201,7 +202,10 @@ export function HotelViewModal({ open, setModal }: Props) {
                 <img
                   width={"100%"}
                   height={"100%"}
-                  src="https://framerusercontent.com/images/TQv9Req7ZME40dmudtRtkwz9lcQ.webp"
+                  src={
+                    hotel?.image[0] ||
+                    "https://framerusercontent.com/images/TQv9Req7ZME40dmudtRtkwz9lcQ.webp"
+                  }
                   alt=""
                 />
               </div>
@@ -244,10 +248,10 @@ export function HotelViewModal({ open, setModal }: Props) {
               <div className="flex justify-between items-start w-full gap-x-[32px]">
                 <div className="gap-[12px] flex flex-col">
                   <h3 className="text-[32px] font-[500] leading-[40px]">
-                    Numero 22 - Lake Como - Design Living & Lake View
+                    {hotel?.name}
                   </h3>
                   <h6 className="text-[20px] leading-[20px] text-[#717171]">
-                    Laglio, Lombardia, Italy
+                    {hotel?.address}
                   </h6>
                 </div>
                 <div className="inline-flex items-center gap-x-[12px]">
@@ -682,7 +686,7 @@ export function HotelViewModal({ open, setModal }: Props) {
             </div>
 
             <div className="flex flex-col gap-y-[16px]">
-              <SidePanel />
+              {hotel && <SidePanel hotel={hotel} />}
               <RareFind />
             </div>
           </div>

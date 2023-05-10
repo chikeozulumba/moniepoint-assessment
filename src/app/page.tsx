@@ -5,16 +5,18 @@ import { SecondaryNavbar } from "@/components/SecondaryNavbar";
 import { Sidebar } from "@/components/Sidebar";
 import { HOTEL } from "@/constants/hotel";
 import { FilterModal } from "@/components/FilterModal";
-import { filterModalAtom, hotelViewModalAtom } from "@/store/modal";
+import { filterModalAtom, hotelAtom, hotelViewModalAtom } from "@/store/modal";
 import { HotelViewModal } from "@/components/HotelViewModal";
+import { useState } from "react";
 
 export default function Home() {
   const [showFilterModal, setFilterModal] = useAtom(filterModalAtom);
-  const [showHotelViewFilterModal, setHotelViewFilterModal] =
-    useAtom(hotelViewModalAtom);
+  const [showHotelViewFilterModal, setHotelViewFilterModal] = useState(false);
+  const [hotel, setHotelAtom] = useState<null | (typeof HOTEL)[0]>(null);
 
-  function handleCardClicked(hotel: (typeof HOTEL)[0]) {
+  function handleCardClicked($hotel: (typeof HOTEL)[0]) {
     setHotelViewFilterModal(true);
+    setHotelAtom($hotel);
   }
 
   return (
@@ -33,6 +35,7 @@ export default function Home() {
         <HotelViewModal
           open={showHotelViewFilterModal}
           setModal={setHotelViewFilterModal}
+          hotel={hotel}
         />
       </main>
     </Provider>

@@ -35,7 +35,10 @@ export function HotelCard({
             <img
               width={"100%"}
               height={"100%"}
-              src="https://framerusercontent.com/images/TQv9Req7ZME40dmudtRtkwz9lcQ.webp"
+              src={
+                hotel.image?.[0] ||
+                "https://framerusercontent.com/images/TQv9Req7ZME40dmudtRtkwz9lcQ.webp"
+              }
               alt=""
             />
           </div>
@@ -56,6 +59,7 @@ export function HotelCard({
               {new Intl.NumberFormat("en-US", {
                 currency: "USD",
                 style: "currency",
+                minimumFractionDigits: 0,
               }).format(hotel.price)}
             </span>
             <span className="text-custom-text-grey">/</span>
